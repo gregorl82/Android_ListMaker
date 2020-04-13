@@ -11,6 +11,10 @@
     <string name="name_of_list">What is the name of your list?</string>
     <string name="create_list">Create</string>
 
+    <!-- Strings used for add new list item dialog -->
+    <string name="task_to_add">What is the task you want to add?</string>
+    <string name="add_task">Add</string>
+
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 </resources>
