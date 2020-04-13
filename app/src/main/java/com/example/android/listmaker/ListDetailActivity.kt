@@ -1,5 +1,7 @@
 package com.example.android.listmaker
 
+import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -58,5 +60,16 @@ class ListDetailActivity : AppCompatActivity() {
             }
 
         builder.create().show()
+    }
+
+    override fun onBackPressed() {
+        val bundle = Bundle()
+        bundle.putParcelable(MainActivity.INTENT_LIST_KEY, list)
+
+        val intent = Intent()
+        intent.putExtras(bundle)
+        setResult(Activity.RESULT_OK, intent)
+
+        super.onBackPressed()
     }
 }
