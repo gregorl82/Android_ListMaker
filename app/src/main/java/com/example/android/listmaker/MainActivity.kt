@@ -1,6 +1,5 @@
 package com.example.android.listmaker
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
@@ -10,6 +9,9 @@ import android.view.MenuItem
 import android.widget.EditText
 import android.widget.FrameLayout
 import androidx.appcompat.app.AlertDialog
+import com.example.android.listmaker.fragments.ListDetailFragment
+import com.example.android.listmaker.fragments.ListSelectionFragment
+import com.example.android.listmaker.models.TaskList
 
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -66,7 +68,8 @@ class MainActivity : AppCompatActivity(),
         builder.setView(listTitleEditText)
 
         builder.setPositiveButton(positiveButtonTitle) { dialog, _ ->
-            val list = TaskList(listTitleEditText.text.toString())
+            val list =
+                TaskList(listTitleEditText.text.toString())
             listSelectionFragment.addList(list)
 
             dialog.dismiss()

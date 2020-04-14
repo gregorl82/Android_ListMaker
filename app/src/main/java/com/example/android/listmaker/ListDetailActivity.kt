@@ -9,6 +9,8 @@ import android.text.InputType
 import android.widget.EditText
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.android.listmaker.adapters.ListItemsRecyclerViewAdapter
+import com.example.android.listmaker.models.TaskList
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ListDetailActivity : AppCompatActivity() {
@@ -26,7 +28,10 @@ class ListDetailActivity : AppCompatActivity() {
         title = list.name
 
         listItemsRecyclerView = findViewById(R.id.list_items_recyclerview)
-        listItemsRecyclerView.adapter = ListItemsRecyclerViewAdapter(list)
+        listItemsRecyclerView.adapter =
+            ListItemsRecyclerViewAdapter(
+                list
+            )
         listItemsRecyclerView.layoutManager = LinearLayoutManager(this)
 
         addTaskButton = findViewById(R.id.add_task_button)

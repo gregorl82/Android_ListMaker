@@ -1,4 +1,4 @@
-package com.example.android.listmaker
+package com.example.android.listmaker.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.android.listmaker.adapters.ListItemsRecyclerViewAdapter
+import com.example.android.listmaker.MainActivity
+import com.example.android.listmaker.R
+import com.example.android.listmaker.models.TaskList
 
 class ListDetailFragment : Fragment() {
 
@@ -30,7 +34,10 @@ class ListDetailFragment : Fragment() {
 
         view?.let {
             listItemsRecyclerView = it.findViewById<RecyclerView>(R.id.list_items_recyclerview)
-            listItemsRecyclerView.adapter = ListItemsRecyclerViewAdapter(list)
+            listItemsRecyclerView.adapter =
+                ListItemsRecyclerViewAdapter(
+                    list
+                )
             listItemsRecyclerView.layoutManager = LinearLayoutManager(context)
         }
         return view
@@ -48,7 +55,8 @@ class ListDetailFragment : Fragment() {
         private const val ARG_LIST = "list"
 
         fun newInstance(list: TaskList): ListDetailFragment {
-            val fragment = ListDetailFragment()
+            val fragment =
+                ListDetailFragment()
             val args = Bundle()
             args.putParcelable(ARG_LIST, list)
             fragment.arguments = args

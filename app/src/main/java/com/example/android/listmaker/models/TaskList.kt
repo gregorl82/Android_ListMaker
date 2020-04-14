@@ -1,4 +1,4 @@
-package com.example.android.listmaker
+package com.example.android.listmaker.models
 
 import android.os.Parcel
 import android.os.Parcelable
@@ -17,7 +17,8 @@ class TaskList ( val name: String, val tasks: ArrayList<String> = ArrayList()) :
     }
 
     companion object CREATOR: Parcelable.Creator<TaskList> {
-        override fun createFromParcel(source: Parcel): TaskList = TaskList(source)
+        override fun createFromParcel(source: Parcel): TaskList =
+            TaskList(source)
 
         override fun newArray(size: Int): Array<TaskList?> = arrayOfNulls(size)
     }

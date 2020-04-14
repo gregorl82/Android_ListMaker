@@ -1,4 +1,4 @@
-package com.example.android.listmaker
+package com.example.android.listmaker.models
 
 import android.content.Context
 import android.preference.PreferenceManager
@@ -23,7 +23,10 @@ class ListDataManager (private val context: Context) {
         for (taskList in sharedPreferenceContents) {
 
             val itemsHashSet = ArrayList(taskList.value as HashSet<String>)
-            val list = TaskList(taskList.key, itemsHashSet)
+            val list = TaskList(
+                taskList.key,
+                itemsHashSet
+            )
 
             taskLists.add(list)
         }

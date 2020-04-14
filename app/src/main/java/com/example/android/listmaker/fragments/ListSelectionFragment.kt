@@ -1,4 +1,4 @@
-package com.example.android.listmaker
+package com.example.android.listmaker.fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -8,6 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.android.listmaker.adapters.ListSelectionRecyclerViewAdapter
+import com.example.android.listmaker.R
+import com.example.android.listmaker.models.ListDataManager
+import com.example.android.listmaker.models.TaskList
 import java.lang.RuntimeException
 
 class ListSelectionFragment : Fragment(),
@@ -22,7 +26,8 @@ class ListSelectionFragment : Fragment(),
         super.onAttach(context)
         if (context is OnListItemFragmentInteractionListener) {
             listener = context
-            listDataManager = ListDataManager(context)
+            listDataManager =
+                ListDataManager(context)
         } else {
             throw RuntimeException("$context must implement OnListItemFragmentInteractionListener")
         }
@@ -47,7 +52,11 @@ class ListSelectionFragment : Fragment(),
         view?.let {
             listsRecyclerView = it.findViewById<RecyclerView>(R.id.lists_recyclerview)
             listsRecyclerView.layoutManager = LinearLayoutManager(activity)
-            listsRecyclerView.adapter = ListSelectionRecyclerViewAdapter(lists, this)
+            listsRecyclerView.adapter =
+                ListSelectionRecyclerViewAdapter(
+                    lists,
+                    this
+                )
         }
     }
 
@@ -70,7 +79,11 @@ class ListSelectionFragment : Fragment(),
 
     private fun updateLists() {
         val lists = listDataManager.readLists()
-        listsRecyclerView.adapter = ListSelectionRecyclerViewAdapter(lists, this)
+        listsRecyclerView.adapter =
+            ListSelectionRecyclerViewAdapter(
+                lists,
+                this
+            )
     }
 
     interface OnListItemFragmentInteractionListener {
