@@ -10,7 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import java.lang.RuntimeException
 
-class ListSelectionFragment : Fragment(), ListSelectionRecyclerViewAdapter.ListSelectionRecyclerViewClickListener {
+class ListSelectionFragment : Fragment(),
+    ListSelectionRecyclerViewAdapter.ListSelectionRecyclerViewClickListener {
 
     private var listener: OnListItemFragmentInteractionListener? = null
 
@@ -81,7 +82,7 @@ class ListSelectionFragment : Fragment(), ListSelectionRecyclerViewAdapter.ListS
     }
 
     companion object {
-        fun newInstance() : ListSelectionFragment {
+        fun newInstance(): ListSelectionFragment {
             return ListSelectionFragment()
         }
     }
