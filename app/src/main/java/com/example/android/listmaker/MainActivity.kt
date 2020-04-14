@@ -8,20 +8,26 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.EditText
+import android.widget.FrameLayout
 import androidx.appcompat.app.AlertDialog
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), ListSelectionFragment.OnListItemFragmentInteractionListener {
 
+    private var fragmentContainer: FrameLayout? = null
     private var listSelectionFragment: ListSelectionFragment = ListSelectionFragment.newInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+
+        fragmentContainer = findViewById(R.id.fragment_container)
+        supportFragmentManager
+            .beginTransaction()
+            .add(R.id.fragment_container, listSelectionFragment)
+            .commit()
 
         fab.setOnClickListener {
            showCreateListDialog()
